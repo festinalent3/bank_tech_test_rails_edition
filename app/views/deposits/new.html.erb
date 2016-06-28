@@ -1,0 +1,5 @@
+<%= form_for [@account, @deposit] do |d| %>
+  <%= d.label :amount %>
+  <%= d.text_field :amount %>
+  <%= d.submit %>
+<% end %>

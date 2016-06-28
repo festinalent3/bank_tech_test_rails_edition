@@ -1,2 +1,8 @@
-Current Balance: 0.00</br>
+<% @balance = 0 %>
+
+<% @account.deposits.each do |deposit| %>
+<% @balance = @balance + deposit.amount %>
+<% end %>
+
+Current Balance: <%= number_with_precision(@balance, precision: 2) %> </br>
 <%= link_to "Make a deposit", new_account_deposit_path(@account.id) %>
