@@ -1,3 +1,6 @@
 
 Current Balance: <%= number_with_precision(@account.getBalance, precision: 2) %> </br>
 <%= link_to "Make a deposit", new_account_deposit_path(@account.id) %>
+<% if @account.getBalance > 0 %>
+<%= link_to "Make a withdrawal", new_account_withdrawal_path(@account.id) %>
+<% end %>

@@ -1,5 +1,7 @@
 class Account < ActiveRecord::Base
   has_many :deposits, dependent: :destroy
+  has_many :withdrawals, dependent: :destroy
+
 
   def getBalance
     sum = 0.0;

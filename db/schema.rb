@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160628124938) do
+ActiveRecord::Schema.define(version: 20160628141306) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,5 +31,15 @@ ActiveRecord::Schema.define(version: 20160628124938) do
 
   add_index "deposits", ["account_id"], name: "index_deposits_on_account_id", using: :btree
 
+  create_table "withdrawals", force: :cascade do |t|
+    t.float    "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "account_id"
+  end
+
+  add_index "withdrawals", ["account_id"], name: "index_withdrawals_on_account_id", using: :btree
+
   add_foreign_key "deposits", "accounts"
+  add_foreign_key "withdrawals", "accounts"
 end

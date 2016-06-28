@@ -1,0 +1,5 @@
+<%= form_for [@account, @withdrawal] do |d| %>
+  <%= d.label :amount %>
+  <%= d.text_field :amount %>
+  <%= d.submit %>
+<% end %>
