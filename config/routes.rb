@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'account' => 'account#index'
-  resources :account
+  get 'accounts' => 'accounts#index'
+  resources :accounts do
+    resources :deposits
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
