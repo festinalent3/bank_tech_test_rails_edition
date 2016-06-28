@@ -7,11 +7,12 @@ class DepositsController < ApplicationController
 
   def create
     @account = Account.find(params[:account_id])
-    @account.deposits.create(deposit_params)
+    @account.makeDeposit(deposit_params)
     redirect_to account_path(@account.id)
   end
 
   private
+  
   def deposit_params
     params.require(:deposit).permit(:amount)
   end

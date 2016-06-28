@@ -12,6 +12,7 @@ class WithdrawalsController < ApplicationController
   end
 
   private
+
   def withdrawal_params
     params.require(:withdrawal).permit(:amount)
   end

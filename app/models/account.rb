@@ -10,6 +10,10 @@ class Account < ActiveRecord::Base
     self.withdrawals.create(withdrawal_params) unless getDeposits - getWithdrawals == 0
   end
 
+  def makeDeposit(deposit_params)
+    self.deposits.create(deposit_params)
+  end
+
   private
 
   def getDeposits

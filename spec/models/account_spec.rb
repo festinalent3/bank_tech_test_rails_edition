@@ -31,4 +31,16 @@ describe Account, type: :model do
     end
   end
 
+  describe '#makeDeposit' do
+    let(:account) { Account.create name: 'MyAccount123' }
+
+    it 'returns the total current balance' do
+      expect(account.makeDeposit(amount: 150)).to be_a Deposit
+      expect(account.getBalance).to eq 150.0
+    end
+  end
+
 end
+
+
+# TODO: Use that to create better validation on withrawals and later deposits
