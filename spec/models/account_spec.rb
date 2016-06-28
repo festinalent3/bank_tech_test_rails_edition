@@ -16,7 +16,8 @@ describe Account, type: :model do
 
     it 'returns the total current balance' do
       account.deposits.create(amount: 150)
-      expect(account.getBalance).to eq 150
+      account.withdrawals.create(amount: 50)
+      expect(account.getBalance).to eq 100.0
     end
   end
 
