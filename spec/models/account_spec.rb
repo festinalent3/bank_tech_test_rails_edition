@@ -7,6 +7,5 @@ describe Account, type: :model do
     account = Account.new(name: "lol")
     expect(account).to be_valid
   end
-
-
+  
 end
