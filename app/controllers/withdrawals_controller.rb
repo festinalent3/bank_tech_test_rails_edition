@@ -7,7 +7,7 @@ class WithdrawalsController < ApplicationController
 
   def create
     @account = Account.find(params[:account_id])
-    @account.withdrawals.create(withdrawal_params)
+    @account.makeWithdrawal(withdrawal_params)
     redirect_to account_path(@account.id)
   end
 

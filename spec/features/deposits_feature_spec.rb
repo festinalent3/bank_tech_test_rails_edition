@@ -22,9 +22,9 @@ feature 'Bank deposits' do
 
     scenario 'user sees the deposit is added to the balance' do
       click_link 'Make a deposit'
-      fill_in('Amount', with: 999)
+      fill_in('Amount', with: 1000)
       click_button('Create Deposit')
-      expect(page).to have_content 'Current Balance: 999.00'
+      expect(page).to have_content 'Current Balance: 1000.00'
     end
   end
 end

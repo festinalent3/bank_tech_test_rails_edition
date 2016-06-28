@@ -1,10 +1,13 @@
 class Account < ActiveRecord::Base
   has_many :deposits, dependent: :destroy
   has_many :withdrawals, dependent: :destroy
-  sum = 0.0
 
   def getBalance
     return getDeposits - getWithdrawals
+  end
+
+  def makeWithdrawal(withdrawal_params)
+    self.withdrawals.create(withdrawal_params) unless getDeposits - getWithdrawals == 0
   end
 
   private

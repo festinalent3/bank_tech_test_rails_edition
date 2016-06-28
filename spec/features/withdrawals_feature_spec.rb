@@ -18,20 +18,20 @@ feature 'Bank withdrawals' do
   context 'deposits are added' do
     before do
       click_link 'Make a deposit'
-      fill_in('Amount', with: 999)
+      fill_in('Amount', with: 1000)
       click_button('Create Deposit')
-      expect(page).to have_content 'Current Balance: 999.00'
+      expect(page).to have_content 'Current Balance: 1000.00'
     end
 
     scenario 'user should be able to make withdrawal' do
-      expect(page).to have_content 'Current Balance: 999.00'
+      expect(page).to have_content 'Current Balance: 1000.00'
       expect(page).to have_link 'Make a withdrawal'
     end
     scenario 'user sees new balance after withdrawal' do
       click_link 'Make a withdrawal'
-      fill_in('Amount', with: 50)
+      fill_in('Amount', with: 500)
       click_button('Create Withdrawal')
-      expect(page).to have_content 'Current Balance: 949.00'
+      expect(page).to have_content 'Current Balance: 500.00'
     end
   end
 end

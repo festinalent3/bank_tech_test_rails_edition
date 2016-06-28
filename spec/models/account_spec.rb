@@ -21,4 +21,14 @@ describe Account, type: :model do
     end
   end
 
+  describe '#makeWithdrawal' do
+    let(:account) { Account.create name: 'MyAccount123' }
+
+    it 'returns the total current balance' do
+      account.deposits.create(amount: 150)
+      expect(account.makeWithdrawal(amount: 50)).to be_a Withdrawal
+      expect(account.getBalance).to eq 100.0
+    end
+  end
+
 end
